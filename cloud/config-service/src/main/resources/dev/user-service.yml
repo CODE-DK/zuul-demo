@@ -1,0 +1,7 @@
+server:
+  port: 8003
+
+spring:
+  mvc:
+    async:
+      request-timeout: 1000

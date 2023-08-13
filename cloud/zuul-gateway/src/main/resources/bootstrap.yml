@@ -1,0 +1,26 @@
+# Application-wide configuration
+server:
+  port: 0
+
+spring:
+  application:
+    name: zuul-gateway
+
+  # Obtain config from config service
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-service
+
+# Configuring Eureka client, at this moment it's necessary to show where Eureka is located
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+    # register-with-eureka: false
+    fetch-registry: true

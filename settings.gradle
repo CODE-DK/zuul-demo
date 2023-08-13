@@ -1,0 +1,11 @@
+rootProject.name = 'zuul-demo'
+
+// Cloud
+include 'cloud:eureka-service'
+include 'cloud:config-service'
+include 'cloud:zuul-gateway'
+
+// Business
+include 'business:user-service'
+include 'business:order-service'
+include 'business:auth-service'
