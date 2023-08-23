@@ -1,4 +1,4 @@
-package com.example.zuul.gateway.filters;
+package com.example.zuul.gateway.filters.error;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ErrorHandlerFilter extends ZuulFilter {
+public class GlobalErrorFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
@@ -21,7 +21,7 @@ public class ErrorHandlerFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return true;
+        return false;
     }
 
     @Override

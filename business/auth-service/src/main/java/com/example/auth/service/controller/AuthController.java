@@ -13,7 +13,6 @@ public class AuthController {
 
     @PostMapping("/getAuthorizationHeader")
     public ResponseEntity<UUID> getAuthorizationHeader() throws InterruptedException {
-        // Thread.sleep(60000);
         UUID token = UUID.randomUUID();
         log.info("Generate new token: {}", token);
         return ResponseEntity.ok(token);

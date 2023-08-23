@@ -1,6 +1,6 @@
 package com.example.zuul.gateway.clients;
 
-import com.example.zuul.gateway.clients.config.FeignClientConfig;
+import com.example.zuul.gateway.config.FeignClientConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
