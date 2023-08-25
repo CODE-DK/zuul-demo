@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class MyZuulFilter extends ZuulFilter {
 
+    protected int order = 0;
+    protected boolean isActive = true;
+
     @Override
     public boolean shouldFilter() {
         return isActive();
@@ -30,10 +33,6 @@ public abstract class MyZuulFilter extends ZuulFilter {
     protected boolean isActive() {
         return isActive;
     }
-
-    protected int order = 0;
-
-    protected boolean isActive = true;
 
     protected abstract void onActive() throws Exception;
 }

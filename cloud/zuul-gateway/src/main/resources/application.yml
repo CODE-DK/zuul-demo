@@ -1,2 +1,5 @@
-my:
-  name: local
+request:
+    proxy:
+        headers:
+            - trace-id
+            - span-id

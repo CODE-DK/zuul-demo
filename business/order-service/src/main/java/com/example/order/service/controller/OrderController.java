@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class OrderController {
 
+    private final EurekaClient eurekaClient;
     @Value("${spring.application.name}")
     private String applicationName;
-    private final EurekaClient eurekaClient;
 
     @GetMapping
     public ResponseEntity<String> getMapping() {
