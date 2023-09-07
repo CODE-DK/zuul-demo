@@ -11,11 +11,11 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 @RestControllerAdvice
 public class OrderControllerAdvice {
 
-    public static final String ERROR_MESSAGE = "Oops, something went wrong in order service";
+  public static final String ERROR_MESSAGE = "Oops, something went wrong in order service";
 
-    @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<String> handleGenericException(Exception e) {
-        log.error(ERROR_MESSAGE, e);
-        return new ResponseEntity<>(ERROR_MESSAGE, INTERNAL_SERVER_ERROR);
-    }
+  @ExceptionHandler(value = Exception.class)
+  public ResponseEntity<String> handleGenericException(Exception e) {
+    log.error(ERROR_MESSAGE, e);
+    return new ResponseEntity<>(ERROR_MESSAGE, INTERNAL_SERVER_ERROR);
+  }
 }

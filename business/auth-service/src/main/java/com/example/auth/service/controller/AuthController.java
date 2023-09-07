@@ -11,10 +11,10 @@ import java.util.UUID;
 @RestController
 public class AuthController {
 
-    @PostMapping("/getAuthorizationHeader")
-    public ResponseEntity<UUID> getAuthorizationHeader() throws InterruptedException {
-        UUID token = UUID.randomUUID();
-        log.info("Generate new token: {}", token);
-        return ResponseEntity.ok(token);
-    }
+  @PostMapping("/getAuthorizationHeader")
+  public ResponseEntity<UUID> getAuthorizationHeader() throws InterruptedException {
+    UUID token = UUID.randomUUID();
+    log.info("Generate new token: {}", token);
+    return ResponseEntity.ok(token);
+  }
 }

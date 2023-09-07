@@ -10,6 +10,6 @@ import java.util.UUID;
 @FeignClient(value = "auth-service", configuration = FeignClientConfig.class)
 public interface AuthServiceClient {
 
-    @PostMapping("/getAuthorizationHeader")
-    ResponseEntity<UUID> getAuthorizationHeader();
+  @PostMapping("/getAuthorizationHeader")
+  ResponseEntity<UUID> getAuthorizationHeader();
 }

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @GetMapping
-    public ResponseEntity<String> getMapping() {
-        return ResponseEntity.ok("Hello from user-service");
-    }
+  @GetMapping
+  public ResponseEntity<String> getMapping() {
+    return ResponseEntity.ok("Hello from user-service");
+  }
 }

@@ -13,18 +13,18 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 @Configuration
 public class FeignClientConfig {
 
-    @Bean
-    public Level feignLoggerLevel() {
-        return FULL;
-    }
+  @Bean
+  public Level feignLoggerLevel() {
+    return FULL;
+  }
 
-    @Bean
-    public Options options() {
-        return new Options(5, SECONDS, 5, SECONDS, false);
-    }
+  @Bean
+  public Options options() {
+    return new Options(5, SECONDS, 5, SECONDS, false);
+  }
 
-    @Bean
-    public Feign.Builder feignBuilder(okhttp3.OkHttpClient okHttpClient) {
-        return Feign.builder().client(new OkHttpClient(okHttpClient));
-    }
+  @Bean
+  public Feign.Builder feignBuilder(okhttp3.OkHttpClient okHttpClient) {
+    return Feign.builder().client(new OkHttpClient(okHttpClient));
+  }
 }

@@ -24,32 +24,32 @@ import static okhttp3.ConnectionSpec.MODERN_TLS;
 @EnableZuulProxy
 public class ZuulProxyConfig {
 
-    @Bean
-    @Primary
-    public OkHttpClient okHttpClient(LoggingOkHttpInterceptor loggingOkHttpInterceptor) {
-        return new OkHttpClient.Builder()
-            .followRedirects(false)
-            .connectionSpecs(of(MODERN_TLS, COMPATIBLE_TLS, CLEARTEXT))
-            .addInterceptor(loggingOkHttpInterceptor)
-            .build();
-    }
+  @Bean
+  @Primary
+  public OkHttpClient okHttpClient(LoggingOkHttpInterceptor loggingOkHttpInterceptor) {
+    return new OkHttpClient.Builder()
+      .followRedirects(false)
+      .connectionSpecs(of(MODERN_TLS, COMPATIBLE_TLS, CLEARTEXT))
+      .addInterceptor(loggingOkHttpInterceptor)
+      .build();
+  }
 
-    @Bean
-    @Primary
-    public SimpleHostRoutingFilter simpleHostRoutingFilter(ProxyRequestHelper proxyRequestHelper,
-                                                           ZuulProperties zuulProperties,
-                                                           CloseableHttpClient customHttpClient) {
-        return new SimpleHostRoutingFilter(proxyRequestHelper, zuulProperties, customHttpClient);
-    }
+  @Bean
+  @Primary
+  public SimpleHostRoutingFilter simpleHostRoutingFilter(ProxyRequestHelper proxyRequestHelper,
+                                                         ZuulProperties zuulProperties,
+                                                         CloseableHttpClient customHttpClient) {
+    return new SimpleHostRoutingFilter(proxyRequestHelper, zuulProperties, customHttpClient);
+  }
 
-    @Bean
-    public CloseableHttpClient customHttpClient(HeaderRequestInterceptor headerRequestInterceptor,
-                                                LoggingRequestInterceptor loggingRequestInterceptor,
-                                                LoggingResponseInterceptor loggingResponseInterceptor) {
-        return HttpClients.custom()
-            .addInterceptorFirst(headerRequestInterceptor)
-            .addInterceptorFirst(loggingRequestInterceptor)
-            .addInterceptorLast(loggingResponseInterceptor)
-            .build();
-    }
+  @Bean
+  public CloseableHttpClient customHttpClient(HeaderRequestInterceptor headerRequestInterceptor,
+                                              LoggingRequestInterceptor loggingRequestInterceptor,
+                                              LoggingResponseInterceptor loggingResponseInterceptor) {
+    return HttpClients.custom()
+      .addInterceptorFirst(headerRequestInterceptor)
+      .addInterceptorFirst(loggingRequestInterceptor)
+      .addInterceptorLast(loggingResponseInterceptor)
+      .build();
+  }
 }

@@ -7,8 +7,8 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 @Slf4j
 abstract class PreFilter extends MyZuulFilter {
 
-    @Override
-    public String filterType() {
-        return FilterConstants.PRE_TYPE;
-    }
+  @Override
+  public String filterType() {
+    return FilterConstants.PRE_TYPE;
+  }
 }

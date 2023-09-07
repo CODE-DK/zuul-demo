@@ -1,19 +1,19 @@
 # Application-wide configuration
 server:
-    port: 0
+  port: 0
 
 spring:
-    application:
-        name: config-service
+  application:
+    name: config-service
 
-    cloud:
-        loadbalancer:
-            ribbon:
-                enabled: false
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
 
 # Configuring Eureka client, at this moment it's necessary to show where Eureka is located
 eureka:
-    client:
-        service-url:
-            defaultZone: http://localhost:8000/eureka
-        fetch-registry: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+    fetch-registry: true

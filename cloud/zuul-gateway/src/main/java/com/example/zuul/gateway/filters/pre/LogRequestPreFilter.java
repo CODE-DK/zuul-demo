@@ -16,16 +16,16 @@ import static java.util.Optional.ofNullable;
 @RequiredArgsConstructor
 public class LogRequestPreFilter extends PreFilter {
 
-    private final MdcService mdcService;
-    private final ProxyHeadersConfig proxyHeadersConfig;
+  private final MdcService mdcService;
+  private final ProxyHeadersConfig proxyHeadersConfig;
 
-    @Override
-    protected void onActive() {
-        RequestContext ctx = RequestContext.getCurrentContext();
-        HttpServletRequest request = ctx.getRequest();
-        proxyHeadersConfig.getHeaders()
-            .forEach(header -> ofNullable(request.getHeader(header)).ifPresent(value -> mdcService.put(header, value)));
-        log.info("Request Method: {}", request.getMethod());
-        log.info("Request URL: {}", request.getRequestURL());
-    }
+  @Override
+  protected void onActive() {
+    RequestContext ctx = RequestContext.getCurrentContext();
+    HttpServletRequest request = ctx.getRequest();
+    proxyHeadersConfig.getHeaders()
+      .forEach(header -> ofNullable(request.getHeader(header)).ifPresent(value -> mdcService.put(header, value)));
+    log.info("Request Method: {}", request.getMethod());
+    log.info("Request URL: {}", request.getRequestURL());
+  }
 }

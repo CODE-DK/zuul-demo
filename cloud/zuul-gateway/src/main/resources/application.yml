@@ -1,5 +1,5 @@
 request:
-    proxy:
-        headers:
-            - trace-id
-            - span-id
+  proxy:
+    headers:
+      - trace-id
+      - span-id

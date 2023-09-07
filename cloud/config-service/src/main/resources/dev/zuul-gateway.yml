@@ -1,36 +1,42 @@
 server:
-    port: 8002
+  port: 8002
 ribbon:
-    connect-timeout: 10000
-    read-timeout: 10000
-    okhttp:
-        enabled: true
-    host:
-        socket-timeout-millis: 10000
+  connect-timeout: 10000
+  read-timeout: 10000
+  okhttp:
+    enabled: true
+  host:
+    socket-timeout-millis: 10000
 zuul:
-    routes:
-        users:
-            path: "/users/**"
-            url: https://jsonplaceholder.typicode.com/users
-        orders:
-            path: "/orders/**"
-            service-id: order-service
+  routes:
+    users:
+      path: "/users/**"
+      url: https://jsonplaceholder.typicode.com/users
+      sensitive-headers: Cookie,Set-Cookie
+    orders:
+      path: "/orders/**"
+      service-id: order-service
+      sensitive-headers: Cookie,Set-Cookie
+    webhook:
+      path: "/webhook/**"
+      url: https://webhook.site/fa23fc6e-2666-4921-81ea-99113e51b4a6
+      sensitive-headers: Cookie,Set-Cookie
 hystrix:
-    threadpool:
-        default:
-            coreSize: 10
-            maxQueueSize: 5
-    command:
-        default:
-            execution:
-                isolation:
-                    thread:
-                        timeoutInMilliseconds: 30000
+  threadpool:
+    default:
+      coreSize: 10
+      maxQueueSize: 5
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
 feign:
-    okhttp:
-        enabled: true
-    client:
-        config:
-            default:
-                connectTimeout: 10000
-                readTimeout: 10000
+  okhttp:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000

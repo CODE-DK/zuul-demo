@@ -10,8 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @ConfigurationPropertiesScan
 public class ZuulGatewayApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ZuulGatewayApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(ZuulGatewayApplication.class, args);
+  }
 
 }

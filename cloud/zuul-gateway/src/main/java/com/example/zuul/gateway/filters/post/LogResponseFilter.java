@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class LogResponseFilter extends PostFilter {
 
-    private final MdcService mdcService;
-    private final ProxyHeadersConfig proxyHeadersConfig;
+  private final MdcService mdcService;
+  private final ProxyHeadersConfig proxyHeadersConfig;
 
-    @Override
-    protected void onActive() {
-        RequestContext ctx = RequestContext.getCurrentContext();
-        int status = ctx.getResponseStatusCode();
-        log.info("Response Status Code: {}", status);
-        proxyHeadersConfig.getHeaders()
-            .forEach(header -> mdcService.get(header).ifPresent(value -> ctx.getResponse().addHeader(header, value)));
-        mdcService.clear();
-    }
+  @Override
+  protected void onActive() {
+    RequestContext ctx = RequestContext.getCurrentContext();
+    int status = ctx.getResponseStatusCode();
+    log.info("Response Status Code: {}", status);
+    proxyHeadersConfig.getHeaders()
+      .forEach(header -> mdcService.get(header).ifPresent(value -> ctx.getResponse().addHeader(header, value)));
+    mdcService.clear();
+  }
 }

@@ -1,21 +1,21 @@
 spring:
-    application:
-        name: user-service
+  application:
+    name: user-service
 
-    # Obtain config from config service
-    cloud:
-        loadbalancer:
-            ribbon:
-                enabled: false
-        config:
-            fail-fast: true
-            discovery:
-                enabled: true
-                service-id: config-service
+  # Obtain config from config service
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-service
 
 # Configuring Eureka client, at this moment it's necessary to show where Eureka is located
 eureka:
-    client:
-        service-url:
-            defaultZone: http://localhost:8000/eureka
-        fetch-registry: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+    fetch-registry: true

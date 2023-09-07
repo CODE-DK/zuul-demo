@@ -9,24 +9,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class GlobalErrorFilter extends ZuulFilter {
 
-    @Override
-    public String filterType() {
-        return FilterConstants.ERROR_TYPE;
-    }
+  @Override
+  public String filterType() {
+    return FilterConstants.ERROR_TYPE;
+  }
 
-    @Override
-    public int filterOrder() {
-        return 0;
-    }
+  @Override
+  public int filterOrder() {
+    return 0;
+  }
 
-    @Override
-    public boolean shouldFilter() {
-        return false;
-    }
+  @Override
+  public boolean shouldFilter() {
+    return false;
+  }
 
-    @Override
-    public Object run() throws ZuulException {
-        RequestContext requestContext = RequestContext.getCurrentContext();
-        return null;
-    }
+  @Override
+  public Object run() throws ZuulException {
+    RequestContext requestContext = RequestContext.getCurrentContext();
+    return null;
+  }
 }

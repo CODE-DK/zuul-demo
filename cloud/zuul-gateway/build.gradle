@@ -1,15 +1,15 @@
 apply plugin: 'java'
 
 dependencies {
-    implementation('io.github.openfeign:feign-core')
-    implementation('io.github.openfeign:feign-okhttp')
-    implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
-    implementation('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
+  implementation('io.github.openfeign:feign-core')
+  implementation('io.github.openfeign:feign-okhttp')
+  implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
+  implementation('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
 
-    implementation('org.springframework.cloud:spring-cloud-config-client')
-    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+  implementation('org.springframework.cloud:spring-cloud-config-client')
+  implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
 }
 
 bootJar {
-    enabled = true
+  enabled = true
 }

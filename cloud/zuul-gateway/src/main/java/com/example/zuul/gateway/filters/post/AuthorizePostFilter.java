@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthorizePostFilter extends PostFilter {
 
-    @Override
-    protected void onActive() {
-        RequestContext requestContext = RequestContext.getCurrentContext();
+  @Override
+  protected void onActive() {
+    RequestContext requestContext = RequestContext.getCurrentContext();
 
-        //todo: not implemented
-    }
+    //todo: not implemented
+  }
 }

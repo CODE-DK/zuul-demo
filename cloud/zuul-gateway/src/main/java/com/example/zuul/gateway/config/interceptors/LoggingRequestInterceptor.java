@@ -14,26 +14,26 @@ import java.util.stream.Collectors;
 @Component
 public class LoggingRequestInterceptor implements HttpRequestInterceptor {
 
-    @Override
-    public void process(HttpRequest request, HttpContext context) {
-        String message = buildRequestEntry(request, context)
-            + buildHeadersEntry(request.getAllHeaders());
-        log.info(message);
-    }
+  @Override
+  public void process(HttpRequest request, HttpContext context) {
+    String message = buildRequestEntry(request, context)
+      + buildHeadersEntry(request.getAllHeaders());
+    log.info(message);
+  }
 
 
-    private String buildRequestEntry(HttpRequest request, HttpContext context) {
-        return "\nRequest - "
-            + request.getRequestLine().getMethod() + " "
-            + context.getAttribute("http.target_host")
-            + request.getRequestLine().getUri();
-    }
+  private String buildRequestEntry(HttpRequest request, HttpContext context) {
+    return "\nRequest - "
+      + request.getRequestLine().getMethod() + " "
+      + context.getAttribute("http.target_host")
+      + request.getRequestLine().getUri();
+  }
 
-    private String buildHeadersEntry(Header[] headers) {
-        return "\nHeaders: ["
-            + Arrays.stream(headers)
-            .map(header -> header.getName() + ": " + header.getValue())
-            .collect(Collectors.joining(", "))
-            + "]";
-    }
+  private String buildHeadersEntry(Header[] headers) {
+    return "\nHeaders: ["
+      + Arrays.stream(headers)
+      .map(header -> header.getName() + ": " + header.getValue())
+      .collect(Collectors.joining(", "))
+      + "]";
+  }
 }

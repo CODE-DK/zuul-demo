@@ -10,5 +10,5 @@ import java.util.List;
 @ConstructorBinding
 @ConfigurationProperties("request.proxy")
 public class ProxyHeadersConfig {
-    List<String> headers;
+  List<String> headers;
 }
